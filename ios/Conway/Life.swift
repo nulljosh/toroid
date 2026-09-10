@@ -48,6 +48,8 @@ struct Life: Equatable {
                     }
                 }
                 let i = y * cols + x
+                // Conway's rule: a live cell survives on 2 or 3 neighbours, a dead cell
+                // is born on exactly 3. Any other count kills or leaves it dead.
                 next[i] = cells[i] == 1 ? (n == 2 || n == 3 ? 1 : 0) : (n == 3 ? 1 : 0)
             }
         }

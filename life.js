@@ -49,6 +49,8 @@ class Life {
                 + cells[mid + l] + cells[mid + r]
                 + cells[dn + l] + cells[dn + x] + cells[dn + r];
         const i = mid + x;
+        // Conway's rule: a live cell survives on 2 or 3 neighbours, a dead cell is
+        // born on exactly 3. Any other count kills or leaves it dead.
         next[i] = cells[i] ? (n === 2 || n === 3 ? 1 : 0) : (n === 3 ? 1 : 0);
       }
     }
