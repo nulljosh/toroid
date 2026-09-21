@@ -1,6 +1,6 @@
 # Architecture
 
-Toroid is Conway's Game of Life on a toroidal (wrapping) grid. The board wraps at edges: a cell that moves off the right edge reappears on the left. Web, iOS, macOS, and watchOS (standalone) implementations share the same rules. The engine is implemented twice: once in JavaScript and once in Swift, pinned to the same test cases so they cannot diverge. No accounts, no network, no storage — just the rules and the grid.
+Toroid is Conway's Game of Life on a toroidal (wrapping) grid. The board wraps at edges: a cell that moves off the right edge reappears on the left. Web, iOS, macOS, and watchOS (standalone) implementations share the same rules. The engine is implemented twice: once in JavaScript and once in Swift, pinned to the same test cases so they cannot diverge. No accounts, no network, no storage, just the rules and the grid.
 
 ## How it runs
 
