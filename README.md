@@ -20,6 +20,8 @@ No accounts. No network. No storage. Just the rules, and a grid that wraps.
 | watchOS | `watchos/`, xcodegen, standalone — own 12x12 port of the engine, fully local |
 | Engine (Swift) | `ios/Conway/Life.swift` |
 
+<img src="progress.svg" width="460">
+
 ## Build
 
 ```sh
