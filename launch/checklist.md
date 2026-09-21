@@ -1,4 +1,4 @@
-# Launch checklist — Toroid
+# Launch checklist, Toroid
 
 Everything in launch/ is a draft. Nothing has been posted anywhere.
 

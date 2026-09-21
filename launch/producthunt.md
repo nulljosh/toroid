@@ -1,4 +1,4 @@
-# Product Hunt — Toroid
+# Product Hunt, Toroid
 
 ## Name (<=40 chars)
 Toroid
