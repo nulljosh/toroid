@@ -1,6 +1,10 @@
 # Architecture
 
-Toroid is Conway's Game of Life on a toroidal (wrapping) grid. The board wraps at edges: a cell that moves off the right edge reappears on the left. Web, iOS, macOS, and watchOS (standalone) implementations share the same rules. The engine is implemented twice: once in JavaScript and once in Swift, pinned to the same test cases so they cannot diverge. No accounts, no network, no storage, just the rules and the grid.
+Toroid plays Conway's Game of Life. You get a grid of squares. Click to switch squares on, press play, and they live, die, and multiply by four simple rules. Patterns grow, settle, or march across the board on their own. There are no accounts, no sign-up, and nothing is saved or sent anywhere.
+
+The board has no edges. Anything that walks off the right side comes back on the left, and off the top comes back on the bottom, the way the surface of a doughnut joins up to itself. That is what "toroid" means.
+
+It runs in a browser and as apps on iPhone, Mac, and Apple Watch. The rules are written twice, once for the web and once for the Apple apps, and both are checked against the same tests so they cannot drift apart.
 
 ## How it runs
 
@@ -12,7 +16,7 @@ Toroid is Conway's Game of Life on a toroidal (wrapping) grid. The board wraps a
 
 ## Engine
 
-The toroidal grid is stored as a flat `Uint8Array` (JavaScript) or `[UInt8]` (Swift), with double buffering for the next generation. Wrap is resolved once per row and once per column instead of computing modulo on each of the 8 neighbor reads, speeding up a step by 4-5x.
+The board is one long list of bytes, one per square, rather than a grid of grids. The next generation is written into a second list so the current one stays intact while it is being read. Working out where the board wraps around is done once per row and once per column, instead of once for each of a square's eight neighbours. That alone makes each step four to five times faster.
 
 | File | What it owns |
 |---|---|
