@@ -25,10 +25,10 @@ I built the engine twice, once in JavaScript and once in Swift, because there is
 
 Drop in a glider, a pulsar, or Gosper's glider gun, which fires a new glider every thirty generations forever. Or fill the board at random and see what survives.
 
-Toroid is $0.99 upfront on iOS, free on the web.
+Toroid is $0.99 on iPhone, iPad and Mac, free on the web.
 
 ## Pricing line (exact wording)
-$0.99 upfront on iOS, free on the web.
+$0.99 on iPhone, iPad and Mac, free on the web.
 
 ## Links
 - Web: https://toroid.heyitsmejosh.com
