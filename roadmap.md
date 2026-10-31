@@ -50,3 +50,6 @@ bundle `com.heyitsmejosh.conway`, profiles "Toroid AppStore" / "Toroid Mac AppSt
 - ASC email 1:58 PM: "issue with your Toroid (macOS) submission". API state REJECTED / UNRESOLVED_ISSUES; iOS still in review.
 - Reason: Guideline 4 — no way to reopen the main window after closing it. Added NSApplicationDelegate quit-on-close handler.
 - Fixed 2026-09-02 evening, resubmitted build 202609021900 (commit 8ee9634).
+
+## Ingested 2026-10-30
+- [ ] Refresh name, landing page, GitHub description and README (Q: new name, or just make the current name consistent everywhere?)
