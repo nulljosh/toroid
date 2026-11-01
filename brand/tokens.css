@@ -2,6 +2,10 @@
 :root {
   --accent: #1d5bd6;
   --accent-light: #5b8cff;
-  --accent-deep: #1d5bd6;
+  --accent-deep: #1646a8;
   --accent-ring: color-mix(in srgb, #1d5bd6 30%, transparent);
+}
+@media (prefers-color-scheme: dark) {
+  /* the light blue reads on dark paper; solid buttons keep #1d5bd6 so white text stays legible */
+  :root { --accent: #5b8cff; --accent-deep: #1d5bd6; --accent-ring: color-mix(in srgb, #5b8cff 35%, transparent); }
 }

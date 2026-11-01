@@ -5,6 +5,6 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 BUILD=$(mktemp -d)
 cp index.html play.html privacy.html life.js devices.css icon.svg icon-192.png icon-512.png icon-512-maskable.png manifest.webmanifest sw.js _headers og.png robots.txt sitemap.xml "$BUILD/"
-cp -R functions src screenshots "$BUILD/"
+cp -R functions src screenshots brand "$BUILD/"
 npx --yes wrangler@latest pages deploy "$BUILD" --project-name conway --branch main --commit-dirty=true
 rm -rf "$BUILD"

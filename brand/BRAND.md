@@ -13,11 +13,13 @@ One bold flat white glyph on an accent gradient tile. No text, no outline, no em
 ## Colour
 | Role | Value |
 |---|---|
-| Accent | `#1d5bd6` |
+| Accent | `#1d5bd6` light, `#5b8cff` dark |
+| Accent deep (links, pressed) | `#1646a8` |
 | Gradient top | `#5b8cff` |
 | Text | `#1d1d1f` light, `#f5f5f7` dark |
-| Background | `#ffffff` light, `#000000` dark |
-| Surface | `#f5f5f7` light, `#1c1c1e` dark |
+| Background | `#ffffff` light, `#1c1a17` dark |
+| Surface | `#f5f5f7` light, `#26231f` dark |
+| Board grid | hairline `#e5e5ea` light, `#3a352e` dark; live cells are the accent |
 
 The accent is for actions, links and the icon. Never brown, beige, purple or teal.
 
@@ -30,4 +32,4 @@ The system font: `-apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helve
 - Controls are 48 points tall capsules, one height in a row. Focus is a 4 point ring at 30 percent accent.
 - Motion is 0.2 s ease and honours reduced motion.
 
-`tokens.css` holds the app's accent. Everything else comes from the shared token file.
+The live page is [toroid.jaybulb.com/brand](https://toroid.jaybulb.com/brand/). `tokens.css` holds the app's accent. Everything else comes from the shared token file.
