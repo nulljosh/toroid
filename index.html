@@ -48,6 +48,11 @@ a:hover { text-decoration: underline; }
 }
 h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; }
 .tagline { color: var(--text2); font-size: 1.15rem; margin: 1rem auto 2rem; max-width: 30rem; }
+/* white on the dark clay (#e07856) is 3:1; solid buttons take the deeper clay in dark. Footer links underline so color is not the only cue. */
+@media (prefers-color-scheme: dark) { .btn:not(.ghost) { background: #b5502c; border-color: #b5502c; } }
+footer a { text-decoration: underline; }
+/* the shared --text2 is 4.3:1 on the paper; a touch darker here so small text reads */
+@media (prefers-color-scheme: light) { :root { --text2: #6b665e; } }
 .cta { display: inline-flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
 .btn {
   display: inline-block; padding: 0.7rem 1.5rem; border-radius: 6px;
@@ -157,7 +162,6 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
     <h2>No accounts, no network</h2>
     <p>Toroid runs entirely on your device. There is no sign-in, no analytics and nothing to collect, because the game is a few hundred lines of arithmetic and never needs to talk to a server.</p>
   </section>
-</main>
 
 
 <style>
@@ -169,7 +173,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
 #install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
 #install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
 #install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
-#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
+#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--link,var(--accent,currentColor));text-decoration:none;}
 #install-anywhere .xp-card a:hover{text-decoration:underline;}
 </style>
 
@@ -230,6 +234,8 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
 .jb-msg{display:none;flex-basis:100%;text-align:center;margin:4px 0 0}
 .jb-msg:target{display:block}
 </style>
+
+</main>
 
 <footer><div class="container">Toroid · a Game of Life implementation · <a href="privacy.html">Privacy</a> &middot; <a href="https://jaybulb.com/docs.html#conway">Docs</a></div></footer>
 
