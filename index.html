@@ -35,25 +35,30 @@ a:hover { text-decoration: underline; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
 
 .hero {
-  position: relative; isolation: isolate; overflow: hidden;
-  background: var(--accent-soft); padding: 6rem 0 5rem; text-align: center;
+  position: relative; isolation: isolate; overflow: hidden; text-align: center;
+  min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center;
+  padding: 6rem 0; background: var(--bg);
 }
 .hero .container { position: relative; z-index: 2; }
-/* the hero background is a live board seeded with gliders, the product running */
+/* the hero background is the game itself, full screen: a live board in the app's clay cells and grid */
 #hero-canvas {
-  position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%;
-  opacity: 0.5; pointer-events: none;
+  position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none;
 }
+/* paper behind the copy so it reads, open board at the edges, a soft foot into the next section */
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: radial-gradient(ellipse at center, var(--accent-soft) 12%, transparent 72%);
+  background: radial-gradient(ellipse 46% 40% at 50% 50%, var(--bg) 35%, color-mix(in srgb, var(--bg) 55%, transparent) 70%, transparent 100%),
+              linear-gradient(transparent 80%, var(--bg));
 }
+@media (max-width: 600px) {
+  .hero::after { background: radial-gradient(ellipse 85% 34% at 50% 50%, var(--bg) 45%, color-mix(in srgb, var(--bg) 55%, transparent) 75%, transparent 100%), linear-gradient(transparent 80%, var(--bg)); }
+}
+.hero .btn.ghost { background: var(--bg); }
 h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; }
 .tagline { color: var(--text2); font-size: 1.15rem; margin: 1rem auto 2rem; max-width: 30rem; }
 /* the hero leads with the line that sells; the label carries the name */
 .hero-label { font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text2); margin: 0 0 16px; }
 .hero-h1 { font-size: clamp(44px, 7vw, 104px); line-height: .95; font-weight: 700; letter-spacing: -.035em; max-width: 1000px; margin: 0 auto; text-wrap: balance; }
-.hero .cta + .demo { margin-top: 48px; }
 /* white on the dark clay (#e07856) is 3:1; solid buttons take the deeper clay in dark. Footer links underline so color is not the only cue. */
 @media (prefers-color-scheme: dark) { .btn:not(.ghost) { background: #b5502c; border-color: #b5502c; } }
 footer a { text-decoration: underline; }
@@ -120,16 +125,6 @@ html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s
       <a class="btn" href="play.html">Play in the browser</a>
       <a class="btn ghost" href="#rules">How it works</a>
     </div>
-<div class="demo">
-  <div class="device device-iphone" id="demoFrame" data-title="Toroid"><div class="device-screen"><iframe id="demoApp" title="Toroid, live" loading="lazy" data-src="play.html?embed"></iframe></div></div>
-  <p class="demo-caption">This is the <span id="demoDev">iPhone</span> app, live. Try it.</p>
-</div>
-<script>
-(function(){var names={iphone:'iPhone',android:'Android',mac:'Mac',windows:'Windows'},dev=document.documentElement.dataset.device,f=document.getElementById('demoFrame'),i=document.getElementById('demoApp');
-if(!names[dev])dev='iphone';f.className='device device-'+dev;document.getElementById('demoDev').textContent=names[dev];
-if(!document.documentElement.classList.contains('embed'))i.src=i.dataset.src;
-function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidth)+')';}fit();addEventListener('resize',fit);})();
-</script>
 
   </div>
 </header>
@@ -256,7 +251,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
   // The hero board is decoration. If anything about it fails, the page still reads fine
   // without it, so bail quietly rather than breaking the rest of the scripts.
   if (!ctx || typeof Life !== 'function') { if (canvas) canvas.style.display = 'none'; return; }
-  const CELL = 14;
+  const CELL = 16;
   let life, dpr;
 
   function seed() {
@@ -266,7 +261,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
     canvas.width = r.width * dpr; canvas.height = r.height * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     life = new Life(Math.max(8, Math.ceil(r.width / CELL)), Math.max(8, Math.ceil(r.height / CELL)));
-    life.randomize(0.12);
+    life.randomize(0.16);
     for (let i = 0; i < 6; i++) {
       life.stamp(PATTERNS.Glider,
         Math.floor(Math.random() * life.cols), Math.floor(Math.random() * life.rows));
@@ -274,21 +269,25 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
     return true;
   }
 
+  const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   function draw() {
     if (!life) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('color');
-    ctx.globalAlpha = 0.35;
+    const w = canvas.width / dpr, h = canvas.height / dpr;
+    ctx.clearRect(0, 0, w, h);
+    // the grid, as in the app
+    ctx.fillStyle = css('--color-hairline') || 'rgba(0,0,0,.08)';
+    for (let x = 0; x <= w; x += CELL) ctx.fillRect(x, 0, 1, h);
+    for (let y = 0; y <= h; y += CELL) ctx.fillRect(0, y, w, 1);
+    ctx.fillStyle = css('--accent') || '#b5502c';
     for (let y = 0; y < life.rows; y++)
       for (let x = 0; x < life.cols; x++)
-        if (life.get(x, y)) ctx.fillRect(x * CELL, y * CELL, CELL - 2, CELL - 2);
-    ctx.globalAlpha = 1;
+        if (life.get(x, y)) ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 1, CELL - 1);
   }
 
   let last = 0;
   function loop(t) {
     if (!life) { requestAnimationFrame(loop); return; }
-    if (t - last > 220) { life.step(); draw(); last = t; }
+    if (t - last > 140) { life.step(); draw(); last = t; }
     // a board that has settled is a dead hero: reseed it
     if (life.generation > 600) seed();
     requestAnimationFrame(loop);
@@ -323,7 +322,15 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
   var canvas = document.getElementById('hero-canvas');
   if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var ticking = false;
-  function apply() { canvas.style.transform = 'translateY(' + (window.scrollY * 0.1) + 'px)'; ticking = false; }
+  var copy = document.querySelector('.hero .container');
+  function apply() {
+    var y = window.scrollY, h = innerHeight;
+    if (y < h * 1.2) {
+      canvas.style.transform = 'translateY(' + (y * 0.45) + 'px)';
+      if (copy) { copy.style.transform = 'translateY(' + (y * 0.2) + 'px)'; copy.style.opacity = Math.max(0, 1 - y / (h * 0.7)); }
+    }
+    ticking = false;
+  }
   window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(apply); ticking = true; } }, { passive: true });
 })();
 </script>
