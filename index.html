@@ -112,6 +112,7 @@ html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s
 .demo-caption{font-size:.9rem;opacity:.65;margin:1rem 0 0}
 .embed .demo,.embed footer,.embed nav{display:none!important}
 </style>
+<style>/* footer glyph band (footer-band.js) */ .word-band{color:var(--accent);position:relative;width:100%;margin:32px 0 0;height:clamp(120px,16vw,220px)} .word-canvas{position:absolute;inset:0;width:100%;height:100%;display:none} .word-band.live .word-canvas{display:block}</style>
 </head>
 <body>
 
@@ -240,7 +241,8 @@ html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s
 
 </main>
 
-<footer><div class="container">Toroid · a Game of Life implementation · <a href="privacy.html">Privacy</a> &middot; <a href="/brand/">Brand kit</a> &middot; <a href="https://jaybulb.com/docs.html#conway">Docs</a></div></footer>
+<footer><div class="container">Toroid · a Game of Life implementation · <a href="privacy.html">Privacy</a> &middot; <a href="/brand/">Brand kit</a> &middot; <a href="https://jaybulb.com/docs.html#conway">Docs</a></div>  <div class="word-band" aria-hidden="true"><canvas class="word-canvas"></canvas></div>
+</footer>
 
 <script src="life.js"></script>
 <script>
@@ -334,5 +336,6 @@ html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s
   window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(apply); ticking = true; } }, { passive: true });
 })();
 </script>
+<script src="footer-band.js" defer></script>
 </body>
 </html>
