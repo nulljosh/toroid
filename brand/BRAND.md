@@ -1,6 +1,6 @@
 # Toroid brand kit and design system
 
-A torus: the board wraps on every edge
+A glider: five cells that cross the board forever, and on a torus never fall off the edge.
 
 ## The mark
 One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.
