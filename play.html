@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conway — play</title>
+<title>Toroid, play</title>
 <meta name="theme-color" content="#f5f0e4">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
@@ -114,7 +114,7 @@ requestAnimationFrame(function loop(t) {
 function cellAt(e) {
   const r = canvas.getBoundingClientRect();
   const x = Math.floor((e.clientX - r.left) / CELL), y = Math.floor((e.clientY - r.top) / CELL);
-  // Pointer capture keeps sending moves after the pointer leaves the canvas — those
+  // Pointer capture keeps sending moves after the pointer leaves the canvas; those
   // would wrap to the far edge and paint a line across the board.
   if (x < 0 || y < 0 || x >= life.cols || y >= life.rows) return null;
   return [x, y];

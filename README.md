@@ -1,8 +1,6 @@
-<img src="icon.svg" width="80" style="border-radius:18px">
+<img src="icon.svg" width="80">
 
-# Toroid
-
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Ftoroid-black?logo=github)](https://github.com/nulljosh/labs/tree/main/toroid)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 
 **Live:** https://toroid.jaybulb.com
@@ -17,7 +15,7 @@ No accounts. No network. No storage. Just the rules, and a grid that wraps.
 | Engine (web) | `life.js`. `node life.test.js` checks the rules |
 | iOS | `ios/`, xcodegen, SwiftUI |
 | macOS | `macos/`, same sources: `../ios/Conway/Life.swift` and `ContentView.swift` |
-| watchOS | `watchos/`, xcodegen, standalone — own 12x12 port of the engine, fully local |
+| watchOS | `watchos/`, xcodegen, standalone, its own 12x12 port of the engine, fully local |
 | Engine (Swift) | `ios/Conway/Life.swift` |
 
 <img src="progress.svg" width="460">

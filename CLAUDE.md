@@ -1,8 +1,8 @@
-# Conway / Toroid
+# Toroid (ex-Conway)
 
-Game of Life on a wrapping grid. Ships as **Toroid** on the App Store (ASC 6806324937) and at toroid.heyitsmejosh.com; bundle id and repo keep the conway name.
+Game of Life on a wrapping grid. Ships as **Toroid** on the App Store (ASC 6806324937) and at toroid.jaybulb.com. The bundle id and the Cloudflare Pages project keep the conway name (`conway`, deploy with `scripts/deploy.sh`).
 
-- `src/` web, `ios/`, `macos/`, `watchos/` (standalone companion), `kmp/` for Android and desktop, `functions/` for /api and /mcp
+- `life.js` + `index.html` / `play.html` web, `ios/`, `macos/`, `watchos/` (standalone companion), `kmp/` for Android and desktop, `functions/` for /api and /mcp
 - No accounts, no network, no storage. Do not add any
 - Ship: `asc workflow run ship-ios VERSION:x.y.z`. Metadata in `metadata/`
-- macOS 1.0 was resubmitted 2026-09-02 after a Guideline 4 window-close fix. iOS waiting on review
+- `asc versions list --app 6806324937` is the truth on versions

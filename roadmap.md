@@ -52,4 +52,4 @@ bundle `com.heyitsmejosh.conway`, profiles "Toroid AppStore" / "Toroid Mac AppSt
 - Fixed 2026-09-02 evening, resubmitted build 202609021900 (commit 8ee9634).
 
 ## Ingested 2026-10-30
-- [ ] Refresh name, landing page, GitHub description and README (Q: new name, or just make the current name consistent everywhere?)
+- [x] Refresh name, landing page, GitHub description and README (Q: new name, or just make the current name consistent everywhere?) Done 2026-11-01: kept Toroid (already the store, site and repo name); play page title no longer says Conway, em dashes out of the landing, README header to the repo standard, GitHub description, homepage and topics set, CLAUDE.md off the lapsed host; site redeployed.
