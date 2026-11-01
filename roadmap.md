@@ -49,4 +49,3 @@ bundle `com.heyitsmejosh.conway`, profiles "Toroid AppStore" / "Toroid Mac AppSt
 ## Ingested 2026-10-30
 
 ## Ingested 2026-11-01
-- [ ] Brand is blue now (Joshua 2026-11-01): web, icon.svg, Toroid.icon, brand kit, favicons and PWA icons are blue (#5b8cff to #1d5bd6). Left: ship the new icon and blue accent in the next iOS/Mac build.
