@@ -9,15 +9,15 @@
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <style>
 :root {
-  --accent: var(--clay);
-  --link: var(--clay-deep); --bg: #ffffff; --panel: #f5f5f7; --text: #1c1d22;
+  --accent: #1d5bd6;
+  --link: #1646a8; --bg: #ffffff; --panel: #f5f5f7; --text: #1c1d22;
   --muted: rgba(17,17,17,0.60); --border: #e6e7ea; --grid: rgba(17,17,17,0.08);
   --font-body: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #111111;
-    --link: var(--clay); --panel: var(--bg2); --text: #e8e8f0;
+    --accent: #5b8cff; --link: #5b8cff; --panel: var(--bg2); --text: #e8e8f0;
     --muted: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.12); --grid: rgba(232,232,240,0.08);
   }
 }
@@ -41,8 +41,8 @@ input[type=range] { width: 110px; accent-color: var(--link, var(--accent)); }
 main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .speed { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--muted); font-size: 0.85rem; }
-/* white on the dark clay is 3:1; the primary button takes the deeper clay in dark */
-@media (prefers-color-scheme: dark) { button.primary { background: #b5502c; border-color: #b5502c; } }
+/* white on the light dark-mode blue is too faint; the primary button takes the deeper blue in dark */
+@media (prefers-color-scheme: dark) { button.primary { background: #1d5bd6; border-color: #1d5bd6; } }
 #board { flex: 1; width: 100%; display: block; touch-action: none; cursor: crosshair; }
 .embed .bar a { display: none; }
 </style>

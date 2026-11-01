@@ -21,8 +21,8 @@
 @import url("devices.css");
 /* white paper, not the shared cream (Joshua 2026-11-01); dark mode keeps the shared tokens */
 @media (prefers-color-scheme: light) { :root { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
-:root{--accent:var(--clay);--link:var(--clay-deep);}
-@media (prefers-color-scheme: dark){:root{--link:var(--clay);}}
+:root{--accent:#1d5bd6;--link:#1646a8;}
+@media (prefers-color-scheme: dark){:root{--accent:#5b8cff;--link:#5b8cff;}}
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -40,7 +40,7 @@ a:hover { text-decoration: underline; }
   padding: 6rem 0; background: var(--bg);
 }
 .hero .container { position: relative; z-index: 2; }
-/* the hero background is the game itself, full screen: a live board in the app's clay cells and grid */
+/* the hero background is the game itself, full screen: a live board in the app's blue cells and grid */
 #hero-canvas {
   position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none;
 }
@@ -59,8 +59,8 @@ h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -0
 /* the hero leads with the line that sells; the label carries the name */
 .hero-label { font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text2); margin: 0 0 16px; }
 .hero-h1 { font-size: clamp(44px, 7vw, 104px); line-height: .95; font-weight: 700; letter-spacing: -.035em; max-width: 1000px; margin: 0 auto; text-wrap: balance; }
-/* white on the dark clay (#e07856) is 3:1; solid buttons take the deeper clay in dark. Footer links underline so color is not the only cue. */
-@media (prefers-color-scheme: dark) { .btn:not(.ghost) { background: #b5502c; border-color: #b5502c; } }
+/* white on the light dark-mode blue is too faint; solid buttons take the deeper blue in dark. Footer links underline so color is not the only cue. */
+@media (prefers-color-scheme: dark) { .btn:not(.ghost) { background: #1d5bd6; border-color: #1d5bd6; } }
 footer a { text-decoration: underline; }
 /* the shared --text2 is 4.3:1 on the paper; a touch darker here so small text reads */
 @media (prefers-color-scheme: light) { :root { --text2: #6b665e; } }
@@ -278,7 +278,7 @@ html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s
     ctx.fillStyle = css('--color-hairline') || 'rgba(0,0,0,.08)';
     for (let x = 0; x <= w; x += CELL) ctx.fillRect(x, 0, 1, h);
     for (let y = 0; y <= h; y += CELL) ctx.fillRect(0, y, w, 1);
-    ctx.fillStyle = css('--accent') || '#b5502c';
+    ctx.fillStyle = css('--accent') || '#1d5bd6';
     for (let y = 0; y < life.rows; y++)
       for (let x = 0; x < life.cols; x++)
         if (life.get(x, y)) ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 1, CELL - 1);

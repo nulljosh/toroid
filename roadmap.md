@@ -47,3 +47,6 @@ bundle `com.heyitsmejosh.conway`, profiles "Toroid AppStore" / "Toroid Mac AppSt
 - Fixed 2026-09-02 evening, resubmitted build 202609021900 (commit 8ee9634).
 
 ## Ingested 2026-10-30
+
+## Ingested 2026-11-01
+- [ ] Brand is blue now (Joshua 2026-11-01): web landing and play.html use #1d5bd6 / dark #5b8cff. Left: icon.svg, Toroid.icon and brand/tokens.css are still magenta (#b01070), and the iOS/Mac apps; redo the icon with /icon and ship it with the next version.
