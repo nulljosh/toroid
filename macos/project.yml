@@ -8,7 +8,7 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
-    MARKETING_VERSION: "1.0"
+    MARKETING_VERSION: "1.0.1"
     CURRENT_PROJECT_VERSION: "202609021900"
 
 targets:
@@ -20,6 +20,7 @@ targets:
       - path: ../ios/Conway/Life.swift
       - path: ../ios/Conway/ContentView.swift
       - path: Conway/ConwayApp.swift
+      - path: ../Toroid.icon
       - path: Assets.xcassets
         buildPhase: resources
     settings:
@@ -27,7 +28,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.conway
         INFOPLIST_FILE: Conway/Info.plist
         GENERATE_INFOPLIST_FILE: NO
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_APPICON_NAME: Toroid
         DEVELOPMENT_TEAM: QMM486NPYC
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_ENTITLEMENTS: Conway.entitlements
