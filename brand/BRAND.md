@@ -1,6 +1,6 @@
 # Toroid brand kit and design system
 
-a torus
+A torus: the board wraps on every edge
 
 ## The mark
 One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.
@@ -13,8 +13,8 @@ One bold flat white glyph on an accent gradient tile. No text, no outline, no em
 ## Colour
 | Role | Value |
 |---|---|
-| Accent | `#b01070` |
-| Gradient top | `#f04dab` |
+| Accent | `#1d5bd6` |
+| Gradient top | `#5b8cff` |
 | Text | `#1d1d1f` light, `#f5f5f7` dark |
 | Background | `#ffffff` light, `#000000` dark |
 | Surface | `#f5f5f7` light, `#1c1c1e` dark |

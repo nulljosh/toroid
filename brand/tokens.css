@@ -1,7 +1,7 @@
 /* Toroid brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
 :root {
-  --accent: #b01070;
-  --accent-light: #f04dab;
-  --accent-deep: #b01070;
-  --accent-ring: color-mix(in srgb, #b01070 30%, transparent);
+  --accent: #1d5bd6;
+  --accent-light: #5b8cff;
+  --accent-deep: #1d5bd6;
+  --accent-ring: color-mix(in srgb, #1d5bd6 30%, transparent);
 }
