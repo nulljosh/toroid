@@ -48,6 +48,10 @@ a:hover { text-decoration: underline; }
 }
 h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; }
 .tagline { color: var(--text2); font-size: 1.15rem; margin: 1rem auto 2rem; max-width: 30rem; }
+/* the hero leads with the line that sells; the label carries the name */
+.hero-label { font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text2); margin: 0 0 16px; }
+.hero-h1 { font-size: clamp(44px, 7vw, 104px); line-height: .95; font-weight: 700; letter-spacing: -.035em; max-width: 1000px; margin: 0 auto; text-wrap: balance; }
+.hero .cta + .demo { margin-top: 48px; }
 /* white on the dark clay (#e07856) is 3:1; solid buttons take the deeper clay in dark. Footer links underline so color is not the only cue. */
 @media (prefers-color-scheme: dark) { .btn:not(.ghost) { background: #b5502c; border-color: #b5502c; } }
 footer a { text-decoration: underline; }
@@ -107,7 +111,13 @@ html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s
 <header class="hero">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="container">
-    <h1 class="tagline">The Game of Life on every screen you own. Draw a pattern, press play, and let four rules do the rest.</h1>
+    <p class="hero-label">Toroid, the Game of Life on every screen you own</p>
+    <h1 class="hero-h1">Draw a pattern. Press play.</h1>
+    <p class="tagline">Four rules do the rest.</p>
+    <div class="cta">
+      <a class="btn" href="play.html">Play in the browser</a>
+      <a class="btn ghost" href="#rules">How it works</a>
+    </div>
 <div class="demo">
   <div class="device device-iphone" id="demoFrame" data-title="Toroid"><div class="device-screen"><iframe id="demoApp" title="Toroid, live" loading="lazy" data-src="play.html?embed"></iframe></div></div>
   <p class="demo-caption">This is the <span id="demoDev">iPhone</span> app, live. Try it.</p>
@@ -119,10 +129,6 @@ if(!document.documentElement.classList.contains('embed'))i.src=i.dataset.src;
 function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidth)+')';}fit();addEventListener('resize',fit);})();
 </script>
 
-    <div class="cta">
-      <a class="btn" href="play.html">Play in the browser</a>
-      <a class="btn ghost" href="#rules">How it works</a>
-    </div>
   </div>
 </header>
 
